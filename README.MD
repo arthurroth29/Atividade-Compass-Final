@@ -135,6 +135,7 @@ A arquitetura apresentada utiliza o Amazon Web Services (AWS) para hospedar e ge
 ### 2. Região e Zonas de Disponibilidade
 
 • A arquitetura está distribuída em duas Zonas de Disponibilidade, garantindo alta disponibilidade;
+
 • Dentro de cada zona, existem sub-redes privadas que contêm os dados confidencias.
 
 ### 3. Rede
@@ -180,18 +181,26 @@ A arquitetura apresentada utiliza o Amazon Web Services (AWS) para hospedar e ge
 # Perguntas etapa 2:
 
 ## Quais as ferramentas vão ser utilizadas?
-Kubernetes e Amazon EKS;
-AWS load Balancer;
-RDS;
-IAM;
-Route 53;
-EFS;
+• Kubernetes e Amazon EKS;
+
+• AWS load Balancer;
+
+• RDS;
+
+• IAM;
+
+• Route 53;
+
+• EFS;
+
 Amazon S3.
 
 ## Como serão garantidos os requisitos de Segurança?
-Utilização de subsnets pública para servidores de acesso e subnets privados para o banco de dados;
-Configuração de security groups restringindo o tráfego para portas 443 e 1500;
-Criptografia em volumes EBS e S3.
+• Utilização de subsnets pública para servidores de acesso e subnets privados para o banco de dados;
+
+• Configuração de security groups restringindo o tráfego para portas 443 e 1500;
+
+• Criptografia em volumes EBS e S3.
 
 ## Qual o custo da infraestrutura na AWS (AWS Calculator)?
 
