@@ -124,6 +124,7 @@ A arquitetura apresentada utiliza o Amazon Web Services (AWS) para hospedar e ge
 2. Região e Zonas de Disponibilidade
 
 • A arquitetura está distribuída em duas Zonas de Disponibilidade, garantindo alta disponibilidade;
+
 • Dentro de cada zona, existem sub-redes privadas que contêm os dados confidencias.
 
 3. Rede
@@ -139,22 +140,27 @@ A arquitetura apresentada utiliza o Amazon Web Services (AWS) para hospedar e ge
 4. Balanceamento de Carga
 
 • Network Load Balancer (NLB): Garante baixo tempo de resposta e gerencia conexões de rede em nível TCP;
+
 • Application Load Balancer (ALB): Distribui tráfego HTTP e HTTPS para os contêineres do EKS, suportando escalabilidade automática.
 
 5. Amazon EKS (Elastic Kubernetes Service)
 
 • Hospeda os contêineres das aplicações;
+
 • Configurado com Auto Scaling para ajustar a capacidade com base na demanda;
+
 • Implanta contêineres em sub-redes privadas para maior segurança.
 
 6. Banco de Dados
 
 • Amazon RDS: Um banco de dados gerenciado usado para armazenar dados de aplicações;
+
 • Configuração de alta disponibilidade com uma instância alternativa para failover.
 
 7. Armazenamento
 
 • Amazon S3: Usado para armazenamento de objetos, como arquivos de backup e dados estáticos;
+
 • Amazon EFS: Sistema de arquivos compartilhado entre os contêineres.
 
 8. Usuário Final
