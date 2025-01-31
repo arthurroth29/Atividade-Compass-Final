@@ -44,6 +44,7 @@ Garante que os recursos sejam transportados de forma eficiente e sem interrupç�
 • DMS (Database Migration Service):
 
 Realiza a migração dos dados do banco de dados MySQL para o ambiente AWS;
+
 Garante a integridade e a segurança dos dados durante a transição.
 
 ## 3. Arquitetura na AWS
@@ -61,6 +62,7 @@ Contém os servidores de replicação que processam os dados recebidos do ambien
 **Public Subnet (App Server)**:
 
 Hospeda o servidor de aplicação pós-migração.
+
 Utiliza volumes EBS para armazenamento.
 
 **Private Subnet (RDS)**:
@@ -70,12 +72,15 @@ Banco de dados relacional migrado é hospedado em um ambiente privado, utilizand
 ## 4. Fluxo de Dados
 
 • Os servidores locais (Front01, Back01 e DB01) são conectados aos Replication Servers na AWS por meio do AWS Replication Agent.
+
 • Os dados capturados pelo agente são replicados para os Replication Servers dentro da Public Subnet;
+
 • A comunicação entre o ambiente on-premise e os Replication Servers é realizada por meio da porta TCP 443, enquanto os dados replicados utilizam a porta TCP 1500 para serem processados na AWS.
 
 Após a replicação:
 
 • Os servidores de aplicação são provisionados em instâncias EC2 T3 na Public Subnet.
+
 • O banco de dados MySQL é migrado para o Amazon RDS na Private Subnet.
 
 # Perguntas etapa 1:
@@ -88,6 +93,7 @@ AWS VPC;
 
 ## Como será realizado o processo de Backup?
 Para o banco de dados será utilizado os backups automáticos do Amazon RDS. 
+
 Para os demais servidores, contaremos com o uso do Amazon EBS.
 
 ## Qual o custo da infraestrutura na AWS (AWS Calculator)?
@@ -111,9 +117,13 @@ A partir desse momento, vamos descrever a arquitetura apresentada no diagrama de
 A arquitetura apresentada utiliza o Amazon Web Services (AWS) para hospedar e gerenciar aplicações em contêineres por meio do Amazon Elastic Kubernetes Service (EKS). Ela é projetada para alta disponibilidade, segurança e escalabilidade. Os principais componentes incluem:
 
 • Amazon EKS para gerenciamento de contêineres.
+
 • Amazon RDS para banco de dados gerenciado.
+
 • Balanceadores de carga (NLB e ALB) para distribuição de tráfego.
+
 • Amazon S3 e EFS para armazenamento.
+
 • AWS Secrets Manager para gerenciamento de credenciais.
 
 ## Componentes da Arquitetura
@@ -130,29 +140,37 @@ A arquitetura apresentada utiliza o Amazon Web Services (AWS) para hospedar e ge
 ### 3. Rede
 
 • As subnets públicas hospedam o NAT Gateway e os balanceadores de carga (NLB e ALB), enquanto as subnets privadas hospedam os nós de contêineres do Amazon EKS e o banco de dados Amazon RDS, garantindo que os serviços voltados para o público fiquem acessíveis, enquanto os dados confidenciais permanecem protegidos;
+
 • VPC (Virtual Private Cloud): Proporciona isolamento da rede;
+
 • NAT Gateway: Permite que recursos em sub-redes privadas acessem a internet de forma segura;
+
 • Internet Gateway: Fornece conexão entre a VPC e a internet.
 
 ### 4. Balanceamento de Carga
 
 • Network Load Balancer (NLB): Garante baixo tempo de resposta e gerencia conexões de rede em nível TCP;
+
 • Application Load Balancer (ALB): Distribui tráfego HTTP e HTTPS para os contêineres do EKS, suportando escalabilidade automática.
 
 ### 5. Amazon EKS (Elastic Kubernetes Service)
 
 • Hospeda os contêineres das aplicações;
+
 • Configurado com Auto Scaling para ajustar a capacidade com base na demanda;
+
 • Implanta contêineres em sub-redes privadas para maior segurança.
 
 ### 6. Banco de Dados
 
 • Amazon RDS: Um banco de dados gerenciado usado para armazenar dados de aplicações;
+
 • Configuração de alta disponibilidade com uma instância alternativa para failover.
 
 ### 7. Armazenamento
 
 • Amazon S3: Usado para armazenamento de objetos, como arquivos de backup e dados estáticos;
+
 • Amazon EFS: Sistema de arquivos compartilhado entre os contêineres.
 
 ### 8. Usuário Final
