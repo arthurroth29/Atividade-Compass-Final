@@ -110,9 +110,13 @@ A partir desse momento, vamos descrever a arquitetura apresentada no diagrama de
 A arquitetura apresentada utiliza o Amazon Web Services (AWS) para hospedar e gerenciar aplicações em contêineres por meio do Amazon Elastic Kubernetes Service (EKS). Ela é projetada para alta disponibilidade, segurança e escalabilidade. Os principais componentes incluem:
 
 • Amazon EKS para gerenciamento de contêineres.
+
 • Amazon RDS para banco de dados gerenciado.
+
 • Balanceadores de carga (NLB e ALB) para distribuição de tráfego.
+
 • Amazon S3 e EFS para armazenamento.
+
 • AWS Secrets Manager para gerenciamento de credenciais.
 
 ## Componentes da Arquitetura
