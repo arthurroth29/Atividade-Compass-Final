@@ -98,11 +98,13 @@ Para os demais servidores, contaremos com o uso do Amazon EBS.
 
 ## Qual o custo da infraestrutura na AWS (AWS Calculator)?
 
-Para mais informações clique aqui. [Link PDF](https://github.com/arthurroth29/Atividade-Compass-Final/blob/25668664350741cb243c33033511642dae1c7903/img/My%20Estimate%20-%20Calculadora%20de%20Pre%C3%A7os%20da%20AWS.pdf)
 
 <div>
 <img src="img/estimativa1.png" width="600">
 </div>
+
+
+Para mais informações clique aqui. [PDF De custos](https://github.com/arthurroth29/Atividade-Compass-Final/blob/25668664350741cb243c33033511642dae1c7903/img/My%20Estimate%20-%20Calculadora%20de%20Pre%C3%A7os%20da%20AWS.pdf)
 
 # Etapa 2: Modernização
 
