@@ -31,7 +31,9 @@ Servidores Locais:
 • AWS Replication Agent:
 
 Instalado nos servidores locais, permite conectá-los aos Replication Servers na AWS;
+
 Responsável por capturar e replicar os dados do ambiente on-premise para o ambiente AWS;
+
 O AWS Replication Agent captura continuamente as alterações nos servidores locais, transmitindo para os Replication Servers provisionados pelo MGN. Isso garante que o ambiente migrado esteja sempre em sincronia com o ambiente on-premise, até o momento do corte definitivo.
 
 Serviços Utilizados na Transferência:
@@ -197,7 +199,7 @@ A arquitetura apresentada utiliza o Amazon Web Services (AWS) para hospedar e ge
 
 • EFS;
 
-Amazon S3.
+• Amazon S3.
 
 ## Como serão garantidos os requisitos de Segurança?
 • Utilização de subsnets pública para servidores de acesso e subnets privados para o banco de dados;
