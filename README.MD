@@ -70,12 +70,15 @@ Banco de dados relacional migrado é hospedado em um ambiente privado, utilizand
 ## 4. Fluxo de Dados
 
 • Os servidores locais (Front01, Back01 e DB01) são conectados aos Replication Servers na AWS por meio do AWS Replication Agent.
+
 • Os dados capturados pelo agente são replicados para os Replication Servers dentro da Public Subnet;
+
 • A comunicação entre o ambiente on-premise e os Replication Servers é realizada por meio da porta TCP 443, enquanto os dados replicados utilizam a porta TCP 1500 para serem processados na AWS.
 
 Após a replicação:
 
 • Os servidores de aplicação são provisionados em instâncias EC2 T3 na Public Subnet.
+
 • O banco de dados MySQL é migrado para o Amazon RDS na Private Subnet.
 
 # Perguntas etapa 1:
