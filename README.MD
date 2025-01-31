@@ -126,8 +126,11 @@ A arquitetura apresentada utiliza o Amazon Web Services (AWS) para hospedar e ge
 3. Rede
 
 • As subnets públicas hospedam o NAT Gateway e os balanceadores de carga (NLB e ALB), enquanto as subnets privadas hospedam os nós de contêineres do Amazon EKS e o banco de dados Amazon RDS, garantindo que os serviços voltados para o público fiquem acessíveis, enquanto os dados confidenciais permanecem protegidos;
+
 • VPC (Virtual Private Cloud): Proporciona isolamento da rede;
+
 • NAT Gateway: Permite que recursos em sub-redes privadas acessem a internet de forma segura;
+
 • Internet Gateway: Fornece conexão entre a VPC e a internet.
 
 4. Balanceamento de Carga
