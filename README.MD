@@ -207,3 +207,5 @@ Amazon S3.
 <div>
 <img src="img/estimativa2.png" width="600">
 </div>
+
+[Nome Clicável](https://github.com/arthurroth29/Atividade-Compass-Final/blob/25668664350741cb243c33033511642dae1c7903/img/My%20Estimate%20-%20Calculadora%20de%20Pre%C3%A7os%20da%20AWS%202.pdf)
